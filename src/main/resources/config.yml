@@ -1,0 +1,59 @@
+#Types of server modes:
+#recording -> only records the games and stores it. The user interface(GUIs,Commands) are disabled to save performance(use in the backend servers).
+#playing -> only handles the user interface(GUIs,Commands) and playing. Recording is disabled to save performance(use in the lobby).
+#shared -> Enables all the modules(use it for multi-arena or shared mode).
+#NOTE: if you want to make separate replaying servers then turn on proxy-mode below.
+server-mode: 'shared'
+
+#Turn this on if you want a separate lobby server and a separate replay server(for big networks who care about lobby performance).
+#Turning this on will require the storage-type to be mysql/postgresql and synced with all the replay servers.
+#For backend servers where the replay will be show set proxy-mode to true and lobby to false.
+#Backend servers will be protected from unwanted players(who do not join from lobby). This can be bypassed by giving replayAddon.admin permission.
+#For Lobby servers where the player can choose the replay set proxy-mode to true and lobby to true and fill in the required details.
+proxy-mode:
+  enabled: false
+  #enable this if this server is a lobby server.
+  lobby:
+    enabled: true
+    #use the same name as in the bungee/velocity config.
+    server-name: 'lobby1'
+    #put the bungee/velocity names of replay servers, a random server will be chosen from the list.
+    playing-servers:
+      - 'replayServer1'
+      - 'replayServer2'
+      - 'replayServer3'
+
+debug: true
+
+#Configure the storage type (mysql,postgresql is compulsory for proxy-mode)
+#uses sqlite by default.
+storage:
+  mysql:
+    enabled: false
+    host: 'localhost'
+    port: 25567
+    database: 'database_name'
+    username: 'root'
+    password: '12345'
+    ssl: false
+    verify-certificate: true
+    max-lifetime: 1800
+    pool-size: 10
+  postgresql:
+    enabled: false
+    host: 'localhost'
+    port: 25567
+    database: 'database_name'
+    username: 'root'
+    password: '12345'
+    ssl: false
+    verify-certificate: true
+    max-lifetime: 1800
+    pool-size: 10
+
+#extra info to store in replay.
+recording-settings:
+  player-tabPrefix: '%luckperms_prefix%'
+  player-tabSuffix: '%luckperms_suffix%'
+  player-tagPrefix: '%luckperms_prefix%'
+  player-tagSuffix: '%luckperms_suffix%'
