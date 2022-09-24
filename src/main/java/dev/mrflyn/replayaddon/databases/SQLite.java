@@ -65,7 +65,7 @@ public class SQLite implements IDatabase {
             try (Statement statement = connection.createStatement()) {
                 statement.executeUpdate(sql);
             }
-            sql = "CREATE TABLE IF NOT EXISTS proxy_mode_data (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+            sql = "CREATE TABLE IF NOT EXISTS proxy_mode_data (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "uuid VARCHAR(200), username VARCHAR(200), proxy_data TEXT);";
             try (Statement statement = connection.createStatement()) {
                 statement.executeUpdate(sql);

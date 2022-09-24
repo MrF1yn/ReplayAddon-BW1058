@@ -91,11 +91,11 @@
             <systemPath>H:\ProjectAPIsSpigot\PacketWrapper.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>bedwars-plugin-22.3.4-original</groupId>
-            <artifactId>bedwars-plugin-22.3.4-original</artifactId>
+            <groupId>bedwars-plugin-22.7</groupId>
+            <artifactId>bedwars-plugin-22.7</artifactId>
             <scope>system</scope>
             <version>1.0</version>
-            <systemPath>H:\ProjectAPIsSpigot\bedwars-plugin-22.3.4-original.jar</systemPath>
+            <systemPath>H:\ProjectAPIsSpigot\bedwars-plugin-22.7.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>Replay</groupId>
