@@ -44,6 +44,12 @@
             <version>2.9.2</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>org.xerial</groupId>-->
+<!--            <artifactId>sqlite-jdbc</artifactId>-->
+<!--            <version>3.39.3.0</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
@@ -130,6 +136,10 @@
                                     <pattern>com.zaxxer.hikari</pattern>
                                     <shadedPattern>dev.mrflyn.replayaddon.libs.com.zaxxer.hikari</shadedPattern>
                                 </relocation>
+<!--                                <relocation>-->
+<!--                                    <pattern>org.sqlite</pattern>-->
+<!--                                    <shadedPattern>dev.mrflyn.replayaddon.libs.org.sqlite</shadedPattern>-->
+<!--                                </relocation>-->
                                 <relocation>
                                     <pattern>org.browsit.milkgui</pattern>
                                     <shadedPattern>dev.mrflyn.replayaddon.libs.org.browsit.milkgui</shadedPattern>

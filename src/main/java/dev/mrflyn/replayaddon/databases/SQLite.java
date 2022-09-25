@@ -104,10 +104,10 @@ public class SQLite implements IDatabase {
     @Override
     public List<GameReplayCache> getGameReplayCaches(String player) {
         List<GameReplayCache> caches = new ArrayList<>();
-        String sql = "SELECT * FROM game_replay WHERE INSTR(replay_data, ?)!=0;";
+        String sql = "SELECT * FROM game_replay WHERE replay_data LIKE ?;";
         try  {
             try(PreparedStatement statement = connection.prepareStatement(sql)){
-                statement.setString(1, player);
+                statement.setString(1, "%"+player+"%");
                 ResultSet result = statement.executeQuery();
                 while (result.next()){
                     caches.add(gson.fromJson(result.getString("replay_data"), GameReplayCache.class));
