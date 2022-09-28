@@ -161,7 +161,8 @@ public class SharedListener implements Listener {
                         if (lang == null) {
                                 plugin.db.createPlayerLanguage(uuid, name, language);
                                 plugin.playerLang.put(uuid, plugin.allLanguages.get(language));
-                        } else {
+                        }
+                        else {
                                 plugin.playerLang.put(uuid, plugin.allLanguages.get(lang));
                         }
                         List<GameReplayCache> caches = plugin.db.getGameReplayCaches(uuid.toString());

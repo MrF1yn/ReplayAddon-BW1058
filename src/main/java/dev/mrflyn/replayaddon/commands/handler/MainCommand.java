@@ -38,7 +38,17 @@ public class MainCommand implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if(args.length==0||!registeredSubCommands.containsKey(args[0])){
+        if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
+            //doesnt exist
+            sender.sendMessage("Available Commands:-");
+            String s = "";
+            for(String name : registeredSubCommands.keySet()){
+                s = s + "/rp "+name + "\n";
+            }
+            sender.sendMessage(s);
+            return true;
+        }
+        if(!registeredSubCommands.containsKey(args[0])){
             //doesnt exist
             return true;
         }
@@ -49,7 +59,7 @@ public class MainCommand implements CommandExecutor, TabCompleter {
                 sender.sendMessage(plugin.allLanguages.get("en").getCurrent(Messages.NO_PERM_MESSAGE, true));
             else {
                 Player p = (Player)sender;
-                p.sendMessage(plugin.playerLang.get(p.getUniqueId()).getCurrent(Messages.NO_PERM_MESSAGE, true));
+                p.sendMessage(plugin.allLanguages.get("en").getCurrent(Messages.NO_PERM_MESSAGE, true));
             }
             return true;
         }

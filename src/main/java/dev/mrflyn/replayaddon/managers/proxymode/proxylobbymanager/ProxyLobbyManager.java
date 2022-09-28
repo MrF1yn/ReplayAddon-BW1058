@@ -2,6 +2,7 @@ package dev.mrflyn.replayaddon.managers.proxymode.proxylobbymanager;
 
 import dev.mrflyn.replayaddon.ReplayAddonMain;
 import dev.mrflyn.replayaddon.advancedreplayhook.ProxyData;
+import dev.mrflyn.replayaddon.commands.AutoConfigCommand;
 import dev.mrflyn.replayaddon.commands.GamesCommand;
 import dev.mrflyn.replayaddon.commands.ReloadCommand;
 import dev.mrflyn.replayaddon.commands.ViewCommand;
@@ -25,7 +26,8 @@ public class ProxyLobbyManager implements IProxyManager {
         MainCommand command = new MainCommand(
                 new GamesCommand(),
                 new ViewCommand(),
-                new ReloadCommand()
+                new ReloadCommand(),
+                new AutoConfigCommand()
         );
         ReplayAddonMain.plugin.getCommand("rp").setExecutor(command);
         ReplayAddonMain.plugin.getCommand("rp").setTabCompleter(command);

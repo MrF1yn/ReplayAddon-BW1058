@@ -1,22 +1,40 @@
 package dev.mrflyn.replayaddon.configs;
 
-import dev.mrflyn.replayaddon.ReplayAddonMain;
+import dev.mrflyn.replayaddon.configs.confighelper.AutoConfig;
 import dev.mrflyn.replayaddon.guis.Buttons;
+import dev.mrflyn.replayaddon.versionutils.Util;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.simpleyaml.configuration.file.YamlFile;
+import org.simpleyaml.exceptions.InvalidConfigurationException;
 
 import java.io.File;
+import java.io.IOException;
 
 import static dev.mrflyn.replayaddon.ReplayAddonMain.plugin;
 
 public class ConfigManager {
 
     public static void loadConfigs(){
-        plugin.mainConfig = YamlConfiguration.loadConfiguration(new File(plugin.getDataFolder()+"/config.yml"));
+        plugin.mainConfig = new YamlFile(plugin.getDataFolder()+"/config.yml");
+        plugin.dbConfig = new YamlFile(plugin.getDataFolder()+"/database.yml");
+        try {
+            plugin.dbConfig.loadWithComments();
+            plugin.mainConfig.loadWithComments();
+            if (plugin.mainConfig.getString("server-mode").equalsIgnoreCase("none")){
+                new AutoConfig().execute();
+                Util.log("Auto-Configured. Restarting Server.");
+                Bukkit.getServer().shutdown();
+            }
+        } catch (InvalidConfigurationException | IOException e) {
+            e.printStackTrace();
+        }
         plugin.buttons = YamlConfiguration.loadConfiguration(new File(plugin.getDataFolder()+"/buttons.yml"));
     }
 
     public static void saveConfigs(){
         plugin.saveResource("config.yml", false);
+        plugin.saveResource("database.yml", false);
         saveButtons();
     }
 

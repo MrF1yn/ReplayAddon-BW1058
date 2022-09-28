@@ -1,12 +1,9 @@
 package dev.mrflyn.replayaddon.managers.sharedmode;
 
 import dev.mrflyn.replayaddon.advancedreplayhook.GameReplayHandler;
-import dev.mrflyn.replayaddon.commands.ReloadCommand;
+import dev.mrflyn.replayaddon.commands.*;
 import dev.mrflyn.replayaddon.guis.CustomReplaySessionSettings;
 import dev.mrflyn.replayaddon.ReplayAddonMain;
-import dev.mrflyn.replayaddon.commands.GamesCommand;
-import dev.mrflyn.replayaddon.commands.JumpToCommand;
-import dev.mrflyn.replayaddon.commands.ViewCommand;
 import dev.mrflyn.replayaddon.commands.handler.MainCommand;
 import dev.mrflyn.replayaddon.managers.IManager;
 import dev.mrflyn.replayaddon.versionutils.Util;
@@ -40,7 +37,8 @@ public class SharedManager implements IManager {
                 new GamesCommand(),
                 new ViewCommand(),
                 new JumpToCommand(),
-                new ReloadCommand()
+                new ReloadCommand(),
+                new AutoConfigCommand()
         );
         ReplayAddonMain.plugin.getCommand("rp").setExecutor(command);
         ReplayAddonMain.plugin.getCommand("rp").setTabCompleter(command);

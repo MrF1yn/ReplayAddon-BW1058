@@ -36,7 +36,8 @@ public class RecordingListener implements Listener {
                         if (lang == null) {
                                 plugin.db.createPlayerLanguage(uuid, name, language);
                                 plugin.playerLang.put(uuid, plugin.allLanguages.get(language));
-                        } else {
+                        }
+                        else {
                                 plugin.playerLang.put(uuid, plugin.allLanguages.get(lang));
                         }
                         Util.debug("loaded on join.");

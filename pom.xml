@@ -110,6 +110,11 @@
             <version>1.0</version>
             <systemPath>H:\AdvancedReplay\target\Replay.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>org.yaml.simpleyaml</groupId>
+            <artifactId>simple-yaml</artifactId>
+            <version>1.7.3</version>
+        </dependency>
     </dependencies>
 
     <build>

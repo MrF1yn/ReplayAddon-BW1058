@@ -23,6 +23,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.simpleyaml.configuration.file.YamlFile;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -33,7 +34,8 @@ import java.util.UUID;
 public class ReplayAddonMain extends JavaPlugin {
 
     public static ReplayAddonMain plugin;
-    public YamlConfiguration mainConfig;
+    public YamlFile mainConfig;
+    public YamlFile dbConfig;
     public YamlConfiguration buttons;
     public IDatabase db;
     public HashMap<String, Button> initializedButtons;
@@ -51,9 +53,9 @@ public class ReplayAddonMain extends JavaPlugin {
         ConfigManager.loadConfigs();
         updateLanguages();
         initButtons();
-        if(mainConfig.getBoolean("storage.mysql.enabled")){
+        if(dbConfig.getBoolean("database.mysql.enabled")){
             db = new MySQL();
-        }else if(mainConfig.getBoolean("storage.postgresql.enabled")){
+        }else if(dbConfig.getBoolean("database.postgresql.enabled")){
             db = new PostgreSQL();
         }else {
             db = new SQLite();

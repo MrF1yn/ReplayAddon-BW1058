@@ -6,6 +6,7 @@ H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\advancedreplayhook\Pl
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\configs\language\ILang.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\configs\language\en.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\managers\playingmode\PlayingListener.java
+H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\configs\confighelper\AdvancedReplayUtil.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\commands\handler\MainCommand.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\managers\proxymode\proxylobbymanager\ProxyLobbyManager.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\spigui\pagination\SGPaginationButtonBuilder.java
@@ -14,11 +15,13 @@ H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\databases\IDatabase.j
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\guis\Buttons.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\databases\PostgreSQL.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\spigui\pagination\SGPaginationButtonType.java
+H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\configs\confighelper\BW1058Util.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\versionutils\SkullCreator.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\ReplayAddonMain.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\versionutils\Util.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\guis\CustomReplaySessionSettings.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\spigui\menu\SGMenuListener.java
+H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\commands\AutoConfigCommand.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\commands\GamesCommand.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\versionutils\ItemBuilder.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\managers\recordingmode\RecordingListener.java
@@ -35,6 +38,7 @@ H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\commands\handler\SubC
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\spigui\SGMenu.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\guis\PlayerReplaysGUI.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\managers\proxymode\ProxyModeManager.java
+H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\configs\confighelper\AutoConfig.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\managers\IManager.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\advancedreplayhook\GameReplayHandler.java
 H:\ReplayAddon-BW1058\src\main\java\dev\mrflyn\replayaddon\guis\replaysessionguis\BookMarksGUI.java

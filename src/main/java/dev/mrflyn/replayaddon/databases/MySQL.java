@@ -31,15 +31,15 @@ public class MySQL implements IDatabase {
      * Create new MySQL connection.
      */
     public MySQL() {
-        this.host = plugin.mainConfig.getString("storage.mysql.host");
-        this.database = plugin.mainConfig.getString("storage.mysql.database");
-        this.user = plugin.mainConfig.getString("storage.mysql.username");
-        this.pass = plugin.mainConfig.getString("storage.mysql.password");
-        this.port = plugin.mainConfig.getInt("storage.mysql.port");
-        this.ssl = plugin.mainConfig.getBoolean("storage.mysql.ssl");
-        this.certificateVerification = plugin.mainConfig.getBoolean("storage.mysql.verify-certificate", true);
-        this.poolSize = plugin.mainConfig.getInt("storage.mysql.pool-size", 10);
-        this.maxLifetime = plugin.mainConfig.getInt("storage.mysql.max-lifetime", 1800);
+        this.host = plugin.dbConfig.getString("database.mysql.host");
+        this.database = plugin.dbConfig.getString("database.mysql.database");
+        this.user = plugin.dbConfig.getString("database.mysql.username");
+        this.pass = plugin.dbConfig.getString("database.mysql.password");
+        this.port = plugin.dbConfig.getInt("database.mysql.port");
+        this.ssl = plugin.dbConfig.getBoolean("database.mysql.ssl");
+        this.certificateVerification = plugin.dbConfig.getBoolean("database.mysql.verify-certificate", true);
+        this.poolSize = plugin.dbConfig.getInt("database.mysql.pool-size", 10);
+        this.maxLifetime = plugin.dbConfig.getInt("database.mysql.max-lifetime", 1800);
     }
 
     @Override

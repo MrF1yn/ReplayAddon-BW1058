@@ -3,10 +3,10 @@
 #playing -> only handles the user interface(GUIs,Commands) and playing. Recording is disabled to save performance(use in the lobby).
 #shared -> Enables all the modules(use it for multi-arena or shared mode).
 #NOTE: if you want to make separate replaying servers then turn on proxy-mode below.
-server-mode: 'shared'
+server-mode: 'none'
 
 #Turn this on if you want a separate lobby server and a separate replay server(for big networks who care about lobby performance).
-#Turning this on will require the storage-type to be mysql/postgresql and synced with all the replay servers.
+#Turning this on will require the database-type to be mysql/postgresql and synced with all the replay servers.
 #For backend servers where the replay will be show set proxy-mode to true and lobby to false.
 #Backend servers will be protected from unwanted players(who do not join from lobby). This can be bypassed by giving replayAddon.admin permission.
 #For Lobby servers where the player can choose the replay set proxy-mode to true and lobby to true and fill in the required details.
@@ -24,32 +24,6 @@ proxy-mode:
       - 'replayServer3'
 
 debug: true
-
-#Configure the storage type (mysql,postgresql is compulsory for proxy-mode)
-#uses sqlite by default.
-storage:
-  mysql:
-    enabled: false
-    host: 'localhost'
-    port: 25567
-    database: 'database_name'
-    username: 'root'
-    password: '12345'
-    ssl: false
-    verify-certificate: true
-    max-lifetime: 1800
-    pool-size: 10
-  postgresql:
-    enabled: false
-    host: 'localhost'
-    port: 25567
-    database: 'database_name'
-    username: 'root'
-    password: '12345'
-    ssl: false
-    verify-certificate: true
-    max-lifetime: 1800
-    pool-size: 10
 
 #extra info to store in replay.
 recording-settings:

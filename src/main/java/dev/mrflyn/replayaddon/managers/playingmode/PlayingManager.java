@@ -2,11 +2,9 @@ package dev.mrflyn.replayaddon.managers.playingmode;
 
 import dev.mrflyn.replayaddon.ReplayAddonMain;
 import dev.mrflyn.replayaddon.advancedreplayhook.GameReplayHandler;
-import dev.mrflyn.replayaddon.commands.GamesCommand;
-import dev.mrflyn.replayaddon.commands.JumpToCommand;
-import dev.mrflyn.replayaddon.commands.ReloadCommand;
-import dev.mrflyn.replayaddon.commands.ViewCommand;
+import dev.mrflyn.replayaddon.commands.*;
 import dev.mrflyn.replayaddon.commands.handler.MainCommand;
+import dev.mrflyn.replayaddon.databases.SQLite;
 import dev.mrflyn.replayaddon.guis.CustomReplaySessionSettings;
 import dev.mrflyn.replayaddon.managers.IManager;
 import dev.mrflyn.replayaddon.managers.sharedmode.SharedListener;
@@ -27,7 +25,12 @@ public class PlayingManager implements IManager {
     @Override
     public void init(){
         if(Bukkit.getServer().getPluginManager().getPlugin("AdvancedReplay")==null){
-            Util.log("SharedMode needs AdvancedReplay to run!");
+            Util.log("Playing Mode needs AdvancedReplay to run!");
+            Bukkit.getServer().getPluginManager().disablePlugin(ReplayAddonMain.plugin);
+            return;
+        }
+        if  (ReplayAddonMain.plugin.db instanceof SQLite){
+            Util.log("Playing Mode needs either MySQL or PostgreSQL. Connect to the same database as the other servers.");
             Bukkit.getServer().getPluginManager().disablePlugin(ReplayAddonMain.plugin);
             return;
         }
@@ -37,7 +40,8 @@ public class PlayingManager implements IManager {
                 new GamesCommand(),
                 new ViewCommand(),
                 new JumpToCommand(),
-                new ReloadCommand()
+                new ReloadCommand(),
+                new AutoConfigCommand()
         );
         ReplayAddonMain.plugin.getCommand("rp").setExecutor(command);
         ReplayAddonMain.plugin.getCommand("rp").setTabCompleter(command);

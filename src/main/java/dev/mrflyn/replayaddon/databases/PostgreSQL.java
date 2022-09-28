@@ -33,15 +33,15 @@ public class PostgreSQL implements IDatabase {
      * Create new MySQL connection.
      */
     public PostgreSQL() {
-        this.host = plugin.mainConfig.getString("storage.postgresql.host");
-        this.database = plugin.mainConfig.getString("storage.postgresql.database");
-        this.user = plugin.mainConfig.getString("storage.postgresql.username");
-        this.pass = plugin.mainConfig.getString("storage.postgresql.password");
-        this.port = plugin.mainConfig.getInt("storage.postgresql.port");
-        this.ssl = plugin.mainConfig.getBoolean("storage.postgresql.ssl");
-        this.certificateVerification = plugin.mainConfig.getBoolean("storage.postgresql.verify-certificate", true);
-        this.poolSize = plugin.mainConfig.getInt("storage.postgresql.pool-size", 10);
-        this.maxLifetime = plugin.mainConfig.getInt("storage.postgresql.max-lifetime", 1800);
+        this.host = plugin.dbConfig.getString("database.postgresql.host");
+        this.database = plugin.dbConfig.getString("database.postgresql.database");
+        this.user = plugin.dbConfig.getString("database.postgresql.username");
+        this.pass = plugin.dbConfig.getString("database.postgresql.password");
+        this.port = plugin.dbConfig.getInt("database.postgresql.port");
+        this.ssl = plugin.dbConfig.getBoolean("database.postgresql.ssl");
+        this.certificateVerification = plugin.dbConfig.getBoolean("database.postgresql.verify-certificate", true);
+        this.poolSize = plugin.dbConfig.getInt("database.postgresql.pool-size", 10);
+        this.maxLifetime = plugin.dbConfig.getInt("database.postgresql.max-lifetime", 1800);
     }
 
     @Override

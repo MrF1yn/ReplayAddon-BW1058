@@ -2,6 +2,7 @@ package dev.mrflyn.replayaddon.managers.proxymode;
 
 import dev.mrflyn.replayaddon.ReplayAddonMain;
 import dev.mrflyn.replayaddon.advancedreplayhook.ProxyData;
+import dev.mrflyn.replayaddon.databases.SQLite;
 import dev.mrflyn.replayaddon.managers.IManager;
 import dev.mrflyn.replayaddon.managers.proxymode.proxylobbymanager.ProxyLobbyManager;
 import dev.mrflyn.replayaddon.managers.proxymode.proxyplayingmode.ProxyPlayingManager;
@@ -17,6 +18,11 @@ public class ProxyModeManager implements IManager {
     public static HashMap<UUID, ProxyData> proxyDataCache = new HashMap<>();
     @Override
     public void init(){
+        if  (ReplayAddonMain.plugin.db instanceof SQLite){
+            Util.log("Proxy Mode needs either MySQL or PostgreSQL. Connect to the same database as the other servers.");
+            Bukkit.getServer().getPluginManager().disablePlugin(ReplayAddonMain.plugin);
+            return;
+        }
         if(!ReplayAddonMain.plugin.mainConfig.getBoolean("proxy-mode.lobby.enabled")) {
             if (Bukkit.getServer().getPluginManager().getPlugin("AdvancedReplay") == null) {
                 Util.log("Proxy-playing-Mode needs AdvancedReplay to run!");

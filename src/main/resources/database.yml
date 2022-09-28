@@ -1,0 +1,25 @@
+#Configure the database type (mysql,postgresql is compulsory for proxy-mode)
+#uses sqlite by default.
+database:
+  mysql:
+    enabled: false
+    host: 'localhost'
+    port: 25567
+    database: 'database_name'
+    username: 'root'
+    password: '12345'
+    ssl: false
+    verify-certificate: true
+    max-lifetime: 1800
+    pool-size: 10
+  postgresql:
+    enabled: false
+    host: 'localhost'
+    port: 25567
+    database: 'database_name'
+    username: 'root'
+    password: '12345'
+    ssl: false
+    verify-certificate: true
+    max-lifetime: 1800
+    pool-size: 10

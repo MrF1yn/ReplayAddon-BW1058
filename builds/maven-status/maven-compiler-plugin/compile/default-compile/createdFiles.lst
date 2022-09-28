@@ -2,6 +2,7 @@ dev\mrflyn\replayaddon\configs\language\en.class
 dev\mrflyn\replayaddon\managers\IManager.class
 dev\mrflyn\replayaddon\versionutils\SupportPAPI$withPAPI.class
 dev\mrflyn\replayaddon\versionutils\SupportPAPI.class
+dev\mrflyn\replayaddon\configs\confighelper\AutoConfig.class
 dev\mrflyn\replayaddon\spigui\pagination\SGPaginationButtonBuilder.class
 dev\mrflyn\replayaddon\advancedreplayhook\GameReplayHandler.class
 dev\mrflyn\replayaddon\commands\ViewCommand.class
@@ -9,6 +10,7 @@ dev\mrflyn\replayaddon\spigui\menu\SGMenuListener.class
 dev\mrflyn\replayaddon\commands\JumpToCommand.class
 dev\mrflyn\replayaddon\spigui\buttons\SGButton.class
 dev\mrflyn\replayaddon\versionutils\ItemDataColor.class
+dev\mrflyn\replayaddon\configs\confighelper\AdvancedReplayUtil.class
 dev\mrflyn\replayaddon\managers\recordingmode\RecordingManager.class
 dev\mrflyn\replayaddon\guis\Button.class
 dev\mrflyn\replayaddon\ReplayAddonMain.class
@@ -22,6 +24,7 @@ dev\mrflyn\replayaddon\guis\Buttons.class
 dev\mrflyn\replayaddon\commands\handler\SubCommand.class
 dev\mrflyn\replayaddon\managers\proxymode\IProxyManager.class
 dev\mrflyn\replayaddon\managers\proxymode\proxylobbymanager\ProxyLobbyManager.class
+dev\mrflyn\replayaddon\commands\AutoConfigCommand.class
 dev\mrflyn\replayaddon\guis\CustomReplaySessionSettings.class
 dev\mrflyn\replayaddon\spigui\SpiGUI$1.class
 dev\mrflyn\replayaddon\databases\MySQL.class
@@ -45,6 +48,7 @@ dev\mrflyn\replayaddon\advancedreplayhook\PlayerInfo.class
 dev\mrflyn\replayaddon\managers\proxymode\proxyplayingmode\ProxyPlayingManager.class
 dev\mrflyn\replayaddon\advancedreplayhook\ProxyData.class
 dev\mrflyn\replayaddon\commands\ReloadCommand.class
+dev\mrflyn\replayaddon\configs\confighelper\BW1058Util.class
 dev\mrflyn\replayaddon\guis\replaysessionguis\ViewerSettingsGUI.class
 dev\mrflyn\replayaddon\configs\ConfigManager.class
 dev\mrflyn\replayaddon\databases\IDatabase.class
