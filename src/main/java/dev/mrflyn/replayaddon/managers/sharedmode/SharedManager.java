@@ -19,13 +19,14 @@ public class SharedManager implements IManager {
 
     @Override
     public void init(){
-        if(Bukkit.getServer().getPluginManager().getPlugin("AdvancedReplay")==null){
-            Util.log("SharedMode needs AdvancedReplay to run!");
+        if(Bukkit.getServer().getPluginManager().getPlugin("AdvancedReplay")==null
+                || !Bukkit.getServer().getPluginManager().getPlugin("AdvancedReplay").getDescription().getAuthors().contains("MrF1yn")){
+            Util.error("SharedMode needs AdvancedReplay-Extended to run!");
             Bukkit.getServer().getPluginManager().disablePlugin(ReplayAddonMain.plugin);
             return;
         }
         if (Bukkit.getServer().getPluginManager().getPlugin("BedWars1058") == null) {
-            Util.log("SharedMode needs BedWars1058 to run!");
+            Util.error("SharedMode needs BedWars1058 to run!");
             Bukkit.getServer().getPluginManager().disablePlugin(ReplayAddonMain.plugin);
             return;
         }

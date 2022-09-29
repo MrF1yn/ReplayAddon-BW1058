@@ -19,13 +19,14 @@ public class ProxyModeManager implements IManager {
     @Override
     public void init(){
         if  (ReplayAddonMain.plugin.db instanceof SQLite){
-            Util.log("Proxy Mode needs either MySQL or PostgreSQL. Connect to the same database as the other servers.");
+            Util.error("Proxy Mode needs either MySQL or PostgreSQL. Connect to the same database as the other servers.");
             Bukkit.getServer().getPluginManager().disablePlugin(ReplayAddonMain.plugin);
             return;
         }
         if(!ReplayAddonMain.plugin.mainConfig.getBoolean("proxy-mode.lobby.enabled")) {
-            if (Bukkit.getServer().getPluginManager().getPlugin("AdvancedReplay") == null) {
-                Util.log("Proxy-playing-Mode needs AdvancedReplay to run!");
+            if(Bukkit.getServer().getPluginManager().getPlugin("AdvancedReplay")==null
+                    || !Bukkit.getServer().getPluginManager().getPlugin("AdvancedReplay").getDescription().getAuthors().contains("MrF1yn")){
+                Util.error("Proxy-Playing-Mode needs AdvancedReplay-Extended to run!");
                 Bukkit.getServer().getPluginManager().disablePlugin(ReplayAddonMain.plugin);
                 return;
             }

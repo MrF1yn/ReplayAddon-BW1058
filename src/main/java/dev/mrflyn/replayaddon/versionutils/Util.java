@@ -55,6 +55,10 @@ public class Util {
         ReplayAddonMain.plugin.getLogger().log(Level.INFO, msg.toString());
     }
 
+    public static <T> void error(T msg) {
+        ReplayAddonMain.plugin.getLogger().log(Level.SEVERE, msg.toString());
+    }
+
     public static <T> void debug(T msg) {
         if(ReplayAddonMain.plugin.mainConfig.getBoolean("debug")) {
             ReplayAddonMain.plugin.getLogger().log(Level.INFO, "[DEBUG]"+msg.toString());
