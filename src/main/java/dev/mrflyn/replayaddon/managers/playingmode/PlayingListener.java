@@ -154,15 +154,17 @@ public class PlayingListener implements Listener {
                         } else {
                                 plugin.playerLang.put(uuid, plugin.allLanguages.get(lang));
                         }
-                        List<GameReplayCache> caches = plugin.db.getGameReplayCaches(uuid.toString());
-                        GameReplayHandler.replayCachePerPlayer.put(uuid, caches);
-                        for(GameReplayCache cache : caches){
-                                GameReplayHandler.replayCacheID.put(cache.getReplayName(), cache);
-                        }
-                        Util.debug("loaded on join.");
-                        Bukkit.getScheduler().runTask(plugin, ()->{
-                           GuiHandler.onJoin(p);
-                        });
+                        Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, () -> {
+                                List<GameReplayCache> caches = plugin.db.getGameReplayCaches(uuid.toString());
+                                GameReplayHandler.replayCachePerPlayer.put(uuid, caches);
+                                for (GameReplayCache cache : caches) {
+                                        GameReplayHandler.replayCacheID.put(cache.getReplayName(), cache);
+                                }
+                                Util.debug("loaded on join.");
+                                Bukkit.getScheduler().runTask(plugin, () -> {
+                                        GuiHandler.onJoin(p);
+                                });
+                        },60L);
                 });
         }
 
