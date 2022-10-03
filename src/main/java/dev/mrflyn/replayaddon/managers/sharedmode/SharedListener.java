@@ -155,7 +155,7 @@ public class SharedListener implements Listener {
                 Util.debug(language);
                 Util.debug(BedWars.getAPI().getLangIso(p));
                 UUID uuid = p.getUniqueId();
-                String info = p.getName()+":"+p.getUniqueId().toString();
+//                String info = p.getName()+":"+p.getUniqueId().toString();
                 Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
                         String lang = plugin.db.getPlayerLanguage(uuid);
                         if (lang == null) {
@@ -165,7 +165,7 @@ public class SharedListener implements Listener {
                         else {
                                 plugin.playerLang.put(uuid, plugin.allLanguages.get(lang));
                         }
-                        List<GameReplayCache> caches = plugin.db.getGameReplayCaches(uuid.toString());
+                        List<GameReplayCache> caches = plugin.db.getGameReplayCaches(name);
                         Util.debug(caches.toString());
                         GameReplayHandler.replayCachePerPlayer.put(uuid, caches);
                         for(GameReplayCache cache : caches){

@@ -146,7 +146,8 @@ public class PlayingListener implements Listener {
         public void onJoin(PlayerJoinEvent e){
                 Player p = e.getPlayer();
                 UUID uuid = p.getUniqueId();
-                String info = p.getName()+":"+p.getUniqueId().toString();
+                String name = p.getName();
+//                String info = p.getName()+":"+p.getUniqueId().toString();
                 Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
                         String lang = plugin.db.getPlayerLanguage(uuid);
                         if (lang == null) {
@@ -154,17 +155,16 @@ public class PlayingListener implements Listener {
                         } else {
                                 plugin.playerLang.put(uuid, plugin.allLanguages.get(lang));
                         }
-                        Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, () -> {
-                                List<GameReplayCache> caches = plugin.db.getGameReplayCaches(uuid.toString());
-                                GameReplayHandler.replayCachePerPlayer.put(uuid, caches);
-                                for (GameReplayCache cache : caches) {
-                                        GameReplayHandler.replayCacheID.put(cache.getReplayName(), cache);
-                                }
-                                Util.debug("loaded on join.");
-                                Bukkit.getScheduler().runTask(plugin, () -> {
-                                        GuiHandler.onJoin(p);
-                                });
-                        },60L);
+                        List<GameReplayCache> caches = plugin.db.getGameReplayCaches(name);
+                        GameReplayHandler.replayCachePerPlayer.put(uuid, caches);
+                        for (GameReplayCache cache : caches) {
+                                GameReplayHandler.replayCacheID.put(cache.getReplayName(), cache);
+                        }
+                        Util.debug("loaded on join.");
+                        Bukkit.getScheduler().runTask(plugin, () -> {
+                                GuiHandler.onJoin(p);
+                        });
+
                 });
         }
 

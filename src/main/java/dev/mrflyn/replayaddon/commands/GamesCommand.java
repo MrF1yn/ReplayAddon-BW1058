@@ -1,7 +1,9 @@
 package dev.mrflyn.replayaddon.commands;
 
+import dev.mrflyn.replayaddon.advancedreplayhook.GameReplayHandler;
 import dev.mrflyn.replayaddon.commands.handler.SubCommand;
 import dev.mrflyn.replayaddon.configs.Messages;
+import dev.mrflyn.replayaddon.guis.GuiHandler;
 import dev.mrflyn.replayaddon.guis.PlayerReplaysGUI;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -21,7 +23,8 @@ public class GamesCommand implements SubCommand {
 
         if (!(sender instanceof Player)) return true;
         Player p = (Player) sender;
-        if(!PlayerReplaysGUI.playerReplayGuiCache.containsKey(p)){
+        if(!GameReplayHandler.replayCachePerPlayer.containsKey(p.getUniqueId())
+                ||GameReplayHandler.replayCachePerPlayer.get(p.getUniqueId()).isEmpty()){
             p.sendMessage(ChatColor.RED+"No Replays exist. If you played a game recently please rejoin the server to update your replays.");
             return true;
         }

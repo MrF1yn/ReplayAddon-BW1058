@@ -29,7 +29,8 @@ public class ProxyLobbyListener implements Listener {
         public void onJoin(PlayerJoinEvent e){
                 Player p = e.getPlayer();
                 UUID uuid = p.getUniqueId();
-                String info = p.getName()+":"+p.getUniqueId().toString();
+                String name = p.getName();
+//                String info = p.getName()+":"+p.getUniqueId().toString();
                 Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
                         String lang = plugin.db.getPlayerLanguage(uuid);
                         if (lang == null) {
@@ -37,7 +38,7 @@ public class ProxyLobbyListener implements Listener {
                         } else {
                                 plugin.playerLang.put(uuid, plugin.allLanguages.get(lang));
                         }
-                        List<GameReplayCache> caches = plugin.db.getGameReplayCaches(uuid.toString());
+                        List<GameReplayCache> caches = plugin.db.getGameReplayCaches(name);
                         GameReplayHandler.replayCachePerPlayer.put(uuid, caches);
                         for(GameReplayCache cache : caches){
                                 GameReplayHandler.replayCacheID.put(cache.getReplayName(), cache);

@@ -72,14 +72,14 @@ public class Util {
     }
 
     public static String translateLang(Messages m, Player p){
-        Util.debug(plugin.playerLang.toString());
-        Util.debug(plugin.allLanguages.toString());
+//        Util.debug(plugin.playerLang.toString());
+//        Util.debug(plugin.allLanguages.toString());
         return plugin.playerLang.get(p.getUniqueId()).getCurrent(m, true);
     }
 
     public static List<String> translateLangList(Messages m, Player p) {
-        Util.debug(plugin.playerLang.toString());
-        Util.debug(plugin.allLanguages.toString());
+//        Util.debug(plugin.playerLang.toString());
+//        Util.debug(plugin.allLanguages.toString());
         return plugin.playerLang.get(p.getUniqueId()).getCurrentList(m);
     }
 
