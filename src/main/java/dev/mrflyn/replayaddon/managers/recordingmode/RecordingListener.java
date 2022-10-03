@@ -47,7 +47,7 @@ public class RecordingListener implements Listener {
         @EventHandler
         public void onLeave(PlayerQuitEvent e){
                 Player p = e.getPlayer();
-                String language = BedWars.getAPI().getLangIso(p);
+                String language = (!plugin.allLanguages.containsKey(BedWars.getAPI().getLangIso(p)))?"en":BedWars.getAPI().getLangIso(p);
                 UUID uuid = p.getUniqueId();
                 Bukkit.getScheduler().runTaskAsynchronously(plugin, ()-> {
                         plugin.db.updatePlayerLanguage(uuid, language);

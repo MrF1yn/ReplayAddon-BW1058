@@ -193,7 +193,7 @@ public class SharedListener implements Listener {
                 GameReplayHandler.startQueue.remove(e.getPlayer());
                 e.getPlayer().setFlySpeed(0.1F);
                 Player p = e.getPlayer();
-                String language = BedWars.getAPI().getLangIso(p);
+                String language = (!plugin.allLanguages.containsKey(BedWars.getAPI().getLangIso(p)))?"en":BedWars.getAPI().getLangIso(p);
                 UUID uuid = p.getUniqueId();
                 Bukkit.getScheduler().runTaskAsynchronously(plugin, ()-> {
                         plugin.db.updatePlayerLanguage(uuid, language);
