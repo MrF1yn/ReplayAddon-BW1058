@@ -58,7 +58,6 @@ public class PlayerReplaysGUI extends SGMenu {
         }
         setIcons();
         cachedInv = getInventory();
-        player.sendMessage("Replays Loaded!");
     }
 
     private void setIcons(){

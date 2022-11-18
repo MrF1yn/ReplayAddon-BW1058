@@ -7,7 +7,7 @@ server-mode: 'none'
 
 #Turn this on if you want a separate lobby server and a separate replay server(for big networks who care about lobby performance).
 #Turning this on will require the database-type to be mysql/postgresql and synced with all the replay servers.
-#For backend servers where the replay will be show set proxy-mode to true and lobby to false.
+#For backend servers where the replay will be shown set proxy-mode to true and lobby to false.
 #Backend servers will be protected from unwanted players(who do not join from lobby). This can be bypassed by giving replayAddon.admin permission.
 #For Lobby servers where the player can choose the replay set proxy-mode to true and lobby to true and fill in the required details.
 proxy-mode:
@@ -23,7 +23,7 @@ proxy-mode:
       - 'replayServer2'
       - 'replayServer3'
 
-debug: true
+debug: false
 
 #extra info to store in replay.
 recording-settings:

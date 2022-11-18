@@ -1,6 +1,6 @@
 name: ReplayAddon-BW1058
 main: dev.mrflyn.replayaddon.ReplayAddonMain
-version: 1.3
+version: 1.4
 api-version: 1.13
 softdepend:
   - BedWars1058

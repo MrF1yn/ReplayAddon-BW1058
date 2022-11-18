@@ -61,7 +61,6 @@ public class ChatTimelineHook implements IReplayHook, Monitor {
         if(replayer.getCurrentTicks()==previousTime)return;
         previousTime = replayer.getCurrentTicks();
         if(replayer.getCurrentTicks()%20!=0)return;
-        Util.debug(count++);
         if(actionData!=null&&actionData.getType()== ActionType.CUSTOM)return;
         if(!replayer.getReplay().getId().equals(parent.getCache().getReplayName()))return;
         if(!parent.isEnabled())return;
